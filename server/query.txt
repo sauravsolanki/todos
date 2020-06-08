@@ -1,0 +1,57 @@
+# subscription {
+#   task {
+#     _id
+#     title
+#     duedate
+#     label
+#     status
+#   }
+# }
+# mutation{
+#   deleteTask(
+#   title:"Run Android"
+#   ),{
+#     response
+#   }
+# }
+# mutation{
+#   createTask(newTask:{
+#     title:"Complete CV2 Assignment"
+#     duedate:"by Toda"
+#     label:"Work"
+#     status:"Progress"
+#   }),{
+#     _id
+#   }
+# }
+
+# query{
+#   taskList{
+#     title
+#     duedate
+#     label
+#     status
+#   }
+# }
+
+
+mutation($title:String!,$duedate:String!,$label:String!,$status:String!){
+  createTask(newTask: {
+    title:$title,
+    duedate:$duedate,
+    label:$label,
+    status:$status
+  }),
+    {
+      _id
+     }
+}
+
+mutation($title:String!){
+  deleteTask(
+  title:$title
+  ),{
+    response
+  }
+}
+
